@@ -1,0 +1,60 @@
+.container {
+    background-color: black;
+    color: white;
+    width: 80%;
+    margin: 50px auto;
+    padding: 25px;
+}
+
+
+
+.carritoTitle {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+}
+
+.carritoCantidad{
+    /* margin-left: 750px; */
+    display: flex;
+    flex-direction: row-reverse ;
+}
+
+.carritoCantidad h3 {
+    padding: 0 70px;
+}
+
+.carritoProductos {
+    background-color: yellow;
+    color: black;
+}
+
+.prod{
+    display: grid;
+    grid-template-columns: 70% 15% 15%;
+}
+
+.carritoTotal {
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.btns {
+    display: grid;
+    grid-template-columns: repeat(2, 600px);
+    align-items: center;
+}
+
+
+.btn {
+    width: 100px;
+    font-size: 15px;
+    border-radius: 15%;
+    margin-top: 25px;
+    justify-self: center;
+    align-self: stretch; 
+}
