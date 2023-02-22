@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import UncontrolledExample from '../boostrap/Carousel';
 import { CartContext } from '../Context/Contexto';
 import style from  './CardProducts.module.css';
 
@@ -21,6 +22,12 @@ const CardProducts = () => {
 
     return (
         <div>
+            <div>
+                <h1>Bien venidos a Deco Bodereau...</h1>
+            </div>
+            <div className={style.container1}>
+                <UncontrolledExample/>
+            </div>
             <div>
                 <Link to='/carrito' >
                     <button>Ver carrito</button>
