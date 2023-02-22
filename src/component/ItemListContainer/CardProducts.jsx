@@ -23,15 +23,13 @@ const CardProducts = () => {
     return (
         <div>
             <div className= {style.title} >
-                <h1>Bien venidos a Deco Bodereau...</h1>
+                <h1>¡Bien venidos a Deco Bodereau!</h1>
             </div>
             <div className={style.container1}>
                 <UncontrolledExample/>
             </div>
             <div>
-                <Link to='/carrito' >
-                    <button>Ver carrito</button>
-                </Link>
+                <h2>algunos de nuestros produsctos...</h2>
             </div>
             <div className={style.card} >{
                 productos.map((producto) => {
