@@ -22,7 +22,7 @@ const CardProducts = () => {
 
     return (
         <div>
-            <div>
+            <div className= {style.title} >
                 <h1>Bien venidos a Deco Bodereau...</h1>
             </div>
             <div className={style.container1}>
