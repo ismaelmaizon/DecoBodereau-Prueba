@@ -22,10 +22,10 @@ function App() {
 
   
   return (
-    <div className="container">
+    <div>
       <CartProvider>
         <Navbar/>
-        <div>
+        <div className="container">
           <Routes>
             <Route path="/" 
             element={<CardProducts/>} />
