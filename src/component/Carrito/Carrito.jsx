@@ -12,7 +12,6 @@ const Carrito = () => {
     // carrit
     const {carrito} = useContext(CartContext)
     const {total} = useContext(CartContext)
-    const {contador} = useContext(CartContext)
 
 
     const {setCarrito} = useContext(CartContext)    
@@ -36,9 +35,7 @@ const Carrito = () => {
         navigate("/");
     }
 
-    useEffect(() => {
-        contador()
-    }, [])
+
 
 
   return (

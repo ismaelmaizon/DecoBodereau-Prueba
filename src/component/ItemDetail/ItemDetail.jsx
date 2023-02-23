@@ -43,10 +43,13 @@ const ItemDetail = () => {
     const {setCarrito} = useContext(CartContext)
     const {addProduct} = useContext(CartContext)
     const {alerta} = useContext(CartContext)
+    const {contador} = useContext(CartContext)
+
 
     const añadiendoACarrito =() => {
         setCarrito(addProduct(producto, carrito, unidades))
         alerta();
+        contador();
 
     }
 
