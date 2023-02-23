@@ -135,7 +135,9 @@ const Checkout = () => {
                     onChange={(e) => setEmail2(e.target.value)}
                     type="text" />
                 </div> 
-                <button type='submit' >Comprar</button>        
+                <Link to='/Checkout/comprobante' >
+                    <button type='submit' >Comprar</button>        
+                </Link>
             </form>
 
             <div className= {style.formComprobante}>

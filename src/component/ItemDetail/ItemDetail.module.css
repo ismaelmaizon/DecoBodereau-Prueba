@@ -1,21 +1,28 @@
 .card {
     display: flex;
-    background-color: black;
+    flex-direction: row;
+    background-color: #B5B5B5;
     margin: 25px auto;
     padding: 25px 20px;
     width: 50%;
-    height: 300px;
+    height: 500px;
     color: white;
-
-
+    border: solid 15px #000;
 }
 
 .card_url {
-    margin: 5px 30px;
+    margin: 5px 20px;
     width: 200px;
-    height: 300px;
+    height: 400px;
     border-radius: 5%;
 }
+
+.card_info {
+    display: grid;
+    grid-template-columns: (300px 200px);
+    justify-content: space-around;
+}
+
 
 .card_destalles {
     font-size: 15px;

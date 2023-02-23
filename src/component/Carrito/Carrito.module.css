@@ -1,5 +1,5 @@
 .container {
-    background-color: black;
+    background-color: #B5B5B5;
     color: white;
     width: 80%;
     margin: 50px auto;
@@ -27,7 +27,7 @@
 }
 
 .carritoProductos {
-    background-color: yellow;
+    background-color: #FFECE0;
     color: black;
 }
 

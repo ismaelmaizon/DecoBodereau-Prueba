@@ -4,7 +4,7 @@
 }
 
 .container {
-    background-color: #BB9D7E;
+    background-color: #FFEBEC;
     margin: 0px;
     padding: 0px;
     display: flex;
@@ -55,7 +55,7 @@
 }
 
 .menu_list li:hover {
-    color: #0E5341;
+    color: white;
     cursor: pointer;
 }
 
@@ -85,7 +85,7 @@
 
 }
 .menu_dentro:hover {
-    background-color: #FC9802;
+    background-color: #B5B5B5;
 }
 
 
