@@ -10,6 +10,7 @@ import { createContext } from 'react';
 import CartProvider from './component/Context/Contexto'
 import Carrito from './component/Carrito/Carrito'
 import Checkout from './component/Checkout/Checkout'
+import Comprobante from './component/Checkout/Comprobante'
 
 
 // Contexto
@@ -38,6 +39,7 @@ function App() {
             <Route path="/Contactos"  element={<p>sin info...</p>} />
             <Route path='*' element={<Navigate to="/"/>}/>
             <Route path='/Checkout' element={<Checkout/>} />
+            <Route path='/Checkout/comprobante' element={<Comprobante/>} />
             <Route path='/carrito' element={<Carrito/>} />
           </Routes>
         </div>

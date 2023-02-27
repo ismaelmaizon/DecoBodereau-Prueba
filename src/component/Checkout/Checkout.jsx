@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react'
-import { db } from '../../../db/firebase-config';
-import { collection, addDoc } from 'firebase/firestore';
 import style from '../Checkout/Checkout.module.css';
+import { db } from '../../../db/firebase-config';
+import { collection, addDoc} from 'firebase/firestore';
 
-// Sweetalert2
+
+
+
 import Swal from 'sweetalert2'
+
+
 
 
 
@@ -14,30 +18,33 @@ import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
+
+
+    //////////////////////////////////////
     const {total} = useContext(CartContext)
     const {carrito} = useContext(CartContext)
     const {setCarrito} = useContext(CartContext)    
     const {setTotalProd} = useContext(CartContext)   
-    const {setTotal} = useContext(CartContext)   
-
-
-
-
+    const {setTotal} = useContext(CartContext)
     const navigate = useNavigate()
 
 
+    const volver = () => {
+        setCarrito([]);
+        setTotalProd(0);
+        setTotal(0);
+        navigate("/");
+    }
+    
+    /////////////////////////////////////////////
 
     const [nombre, setNombre] = useState("")
     const [email, setEmail] = useState("")
     const [email2, setEmail2] = useState("")
     const [telefono, setTelefono] = useState("")
     const [direccion, setDireccion] = useState("")
-    const [idCompra, setIdCompra] = useState("")
-
-    // funcion comprar
 
     const orderCollection = collection( db, "ordenes" );
-    
 
     const order = {
         comprador: {
@@ -49,6 +56,7 @@ const Checkout = () => {
         items: carrito.map(product => ({ id: product.id, name: product.name, unidades: product.unidades, precio: product.precio})),
         total: total
     }
+
 
     const handelClickComprar = async (e) => {
         if (email == email2) {
@@ -72,22 +80,23 @@ const Checkout = () => {
                   Swal.fire('Changes are not saved', '', 'info')
                 }
               })
+            navigate('/Checkout/comprobante')
         }else{
             e.preventDefault();
             Swal.fire('Emails ingresados no Coinciden')
         }
     }
 
+    
+    const {idCompra} = useContext(CartContext)
+    const {setIdCompra} = useContext(CartContext)
+
+    
+
 
     console.log("id de compra: " + idCompra);
 
 
-    const volver = () => {
-        setCarrito([]);
-        setTotalProd(0);
-        setTotal(0);
-        navigate("/");
-    }
 
     
     return (
@@ -135,16 +144,12 @@ const Checkout = () => {
                     onChange={(e) => setEmail2(e.target.value)}
                     type="text" />
                 </div> 
-                <Link to='/Checkout/comprobante' >
-                    <button type='submit' >Comprar</button>        
-                </Link>
+                <button type='submit' >Comprar</button>        
             </form>
-
-            <div className= {style.formComprobante}>
-                <h1>Comprobante de compra: {idCompra}</h1>
-                <Link to="/" >
+            <div>
+            <Link to="/" >
                 <button onClick={volver} >volver al inicio</button>            
-                </Link>
+            </Link>
             </div>
 
         </div>

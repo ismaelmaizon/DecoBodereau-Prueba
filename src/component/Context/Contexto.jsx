@@ -19,8 +19,6 @@ export const useCartContext = () => useContext(CartContext)
 
 // react router
 
-import { useNavigate } from 'react-router-dom';
-
 
 const CartProvider = ({children}) => {
 
@@ -123,6 +121,13 @@ const CartProvider = ({children}) => {
         carrito.map((prod) => {setTotal(total + (prod.precio*prod.unidades))} ) 
     }
 
+
+
+    ///// info de checkout /////
+
+    const [idCompra, setIdCompra] = useState("")
+
+    
     
     useEffect(() => {
         getProductos();
@@ -132,6 +137,7 @@ const CartProvider = ({children}) => {
 
     return (
         <CartContext.Provider value={{
+            idCompra, setIdCompra,
             total,contador, setTotal,
             productos,ordenes,
             alerta,
