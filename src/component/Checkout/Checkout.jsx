@@ -76,11 +76,13 @@ const Checkout = () => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
                   Swal.fire('Su compra se realizo con exito pronto nos contactaremos', '', 'success')
+                  navigate('/Checkout/comprobante')
                 } else if (result.isDenied) {
                   Swal.fire('Changes are not saved', '', 'info')
+                  navigate('/')
                 }
               })
-            navigate('/Checkout/comprobante')
+            
         }else{
             e.preventDefault();
             Swal.fire('Emails ingresados no Coinciden')
