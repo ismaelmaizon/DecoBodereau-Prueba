@@ -6,6 +6,11 @@ import { collection, getDocs, deleteDoc, doc} from 'firebase/firestore';
 // Sweetalert2
 import Swal from 'sweetalert2'
 
+
+//emails
+import emailjs from '@emailjs/browser';
+
+
 //contexto
 
 import { useContext, useEffect, useState } from "react";
@@ -69,10 +74,6 @@ const CartProvider = ({children}) => {
         })
     };
 
-    
-    
-
-
     console.log("productos:" + {productos})
     console.log("ordenes:" + {ordenes})
     
@@ -127,7 +128,19 @@ const CartProvider = ({children}) => {
 
     const [idCompra, setIdCompra] = useState("")
 
-    
+
+
+    ////// emails //////
+
+
+    const sendEmail = (idCompra) => {
+        emailjs.send('service_j2ki7bf', 'template_cywbieo', {message: `hola ismael, mendaje de prueba 2 numero de compra: ${idCompra}`}, 'yyv2iSvB0hSjYp091')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    }
     
     useEffect(() => {
         getProductos();
@@ -137,6 +150,7 @@ const CartProvider = ({children}) => {
 
     return (
         <CartContext.Provider value={{
+            sendEmail,
             idCompra, setIdCompra,
             total,contador, setTotal,
             productos,ordenes,

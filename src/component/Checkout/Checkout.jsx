@@ -4,14 +4,6 @@ import { db } from '../../../db/firebase-config';
 import { collection, addDoc} from 'firebase/firestore';
 
 
-//emails
-
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-
-
-
-
 import Swal from 'sweetalert2'
 
 
@@ -27,9 +19,6 @@ const Checkout = () => {
 
 
     //////////////////////////////////////
-
-    const form = useRef();
-
 
 
     //////////////////////////////////////
@@ -80,12 +69,6 @@ const Checkout = () => {
                 setIdCompra(id);
             });
 
-            emailjs.send('service_j2ki7bf', 'template_cywbieo', {message: `hola ismael, mendaje de prueba 1 numero de compra ${idCompra}`}, 'yyv2iSvB0hSjYp091')
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
 
             Swal.fire({
                 title: 'Confirmar la compra',
@@ -126,14 +109,13 @@ const Checkout = () => {
     <div className= {style.container} >
         <h1 className= {style.title} >Checkout</h1>
         <div className= {style.form}>
-            <form ref={form}  onSubmit={handelClickComprar} className= {style.formInfo}>
+            <form onSubmit={handelClickComprar} className= {style.formInfo}>
                 <div>
                     <label>Ingrese Nombre Completo: </label>
                     <input 
                     value={nombre}
                     onChange={(e) => setNombre(e.target.value)}
                     type="text"
-                    name="user_name"
                     />
                 </div>
 
@@ -160,7 +142,6 @@ const Checkout = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     type="text"
-                    name="user_email"
                     />
                 </div> 
 
