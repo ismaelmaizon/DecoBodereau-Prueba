@@ -134,7 +134,8 @@ const CartProvider = ({children}) => {
 
 
     const sendEmail = (idCompra) => {
-        emailjs.send('service_j2ki7bf', 'template_cywbieo', {message: `hola ismael, mendaje de prueba 2 numero de compra: ${idCompra}`}, 'yyv2iSvB0hSjYp091')
+        
+        emailjs.send('service_j2ki7bf', 'template_cywbieo', {message: `hola ismael, se genero un acompra con codigo: ${idCompra}`}, 'yyv2iSvB0hSjYp091')
             .then((result) => {
                 console.log(result.text);
             }, (error) => {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -7,16 +7,37 @@ import { CartContext } from '../Context/Contexto';
 import style from  './CardProducts.module.css';
 
 const CardProducts = () => {
+
+
+    const [comprador, setComprador] = useState({})
     
 
     //contexto
 
     const {productos} = useContext(CartContext)
-    // const {ordenes} = useContext(CartContext)
-
+    const {ordenes} = useContext(CartContext)
+    
 
     console.log( productos)
-    // console.log (ordenes)
+    console.log (ordenes)
+
+    const probando = (ordenes) => {
+
+        ordenes.map((idem)=> {
+            setComprador = idem.comprador
+            console.log(idem.total)
+            console.log(comprador)
+            console.log(idem.items)
+            console.log(idem.id)
+
+
+
+        })
+    }
+
+    useEffect(() => {
+        probando();
+    },[])
 
 
 
