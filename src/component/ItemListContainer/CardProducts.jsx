@@ -8,9 +8,7 @@ import style from  './CardProducts.module.css';
 
 const CardProducts = () => {
 
-
     const [comprador, setComprador] = useState({})
-    
 
     //contexto
 
@@ -21,19 +19,15 @@ const CardProducts = () => {
     console.log( productos)
     console.log (ordenes)
 
-    const probando = (ordenes) => {
-
-        ordenes.map((idem)=> {
-            setComprador = idem.comprador
-            console.log(idem.total)
-            console.log(comprador)
-            console.log(idem.items)
-            console.log(idem.id)
+    const probando = () => {
+        console.log(ordenes);
+        console.log(ordenes[0]);
+        setComprador(ordenes[0]);
+        console.log(comprador.comprador);
 
 
-
-        })
     }
+
 
     useEffect(() => {
         probando();
