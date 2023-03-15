@@ -6,31 +6,56 @@ import UncontrolledExample from '../boostrap/Carousel';
 import { CartContext } from '../Context/Contexto';
 import style from  './CardProducts.module.css';
 
+//emails
+import emailjs from '@emailjs/browser';
+
 const CardProducts = () => {
 
-    const [comprador, setComprador] = useState({})
+    // const [comprador, setComprador] = useState({})
 
     //contexto
 
     const {productos} = useContext(CartContext)
     const {ordenes} = useContext(CartContext)
+    const {comprador} = useContext(CartContext)
+    
+    const {idCompra} = useContext(CartContext)
+    const {getOrdenes} = useContext(CartContext)
+
     
 
-    console.log( productos)
+    // console.log( productos)
+    console.log ("cardProd: ")
     console.log (ordenes)
 
-    const probando = () => {
+    // const probando = () => {
+    //     console.log(ordenes);
+    //     console.log(ordenes[0]);
+    //     setComprador(ordenes[0].comprador);
+    //     console.log(comprador.nombre);
+    // }
+
+    const sendEmail = (ordenes) => {
+
+        console.log("dentro de sedEmail");
         console.log(ordenes);
-        console.log(ordenes[0]);
-        setComprador(ordenes[0]);
-        console.log(comprador.comprador);
-
-
-    }
+        console.log(idCompra);
+        console.log(comprador);
+               
+        // emailjs.send('service_j2ki7bf', 'template_cywbieo', {message: `hola ismael, se genero un acompra con codigo: ${idCompra}`}, 'yyv2iSvB0hSjYp091')
+        //     .then((result) => {
+        //         console.log(result.text);
+        //     }, (error) => {
+        //         console.log(error.text);
+        //     });
+    }      
 
 
     useEffect(() => {
-        probando();
+        getOrdenes();
+        setTimeout(() => {
+            sendEmail(ordenes);
+        }, 7000);        
     },[])
 
 

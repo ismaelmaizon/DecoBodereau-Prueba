@@ -9,7 +9,6 @@ import { CartContext } from '../Context/Contexto';
 
 const Comprobante = () => {
 
-  const {sendEmail} = useContext(CartContext)    
   const {setCarrito} = useContext(CartContext)    
   const {setTotalProd} = useContext(CartContext)   
   const {setTotal} = useContext(CartContext)
@@ -25,9 +24,10 @@ const Comprobante = () => {
 
   const {idCompra} = useContext(CartContext)
 
-  useEffect(() =>{
-    sendEmail(idCompra)
-  } ,[] )
+
+  // useEffect(() =>{
+  //   sendEmail(idCompra)
+  // } ,[] )
 
 
 
