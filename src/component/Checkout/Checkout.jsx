@@ -19,6 +19,8 @@ const Checkout = () => {
 
 
     //////////////////////////////////////
+  
+    
 
 
     //////////////////////////////////////
@@ -80,7 +82,9 @@ const Checkout = () => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
                   Swal.fire('Su compra se realizo con exito pronto nos contactaremos', '', 'success')
-                  navigate('/Checkout/comprobante')
+                  navigate('/Checkout/comprobante');
+
+                   
                 } else if (result.isDenied) {
                   Swal.fire('Changes are not saved', '', 'info')
                   navigate('/')
@@ -101,6 +105,8 @@ const Checkout = () => {
 
 
     console.log("id de compra: " + idCompra);
+
+    
 
 
 

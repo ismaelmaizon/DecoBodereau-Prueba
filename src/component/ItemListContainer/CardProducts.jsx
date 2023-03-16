@@ -6,8 +6,7 @@ import UncontrolledExample from '../boostrap/Carousel';
 import { CartContext } from '../Context/Contexto';
 import style from  './CardProducts.module.css';
 
-//emails
-import emailjs from '@emailjs/browser';
+
 
 const CardProducts = () => {
 
@@ -17,16 +16,20 @@ const CardProducts = () => {
 
     const {productos} = useContext(CartContext)
     const {ordenes} = useContext(CartContext)
-    const {comprador} = useContext(CartContext)
-    
-    const {idCompra} = useContext(CartContext)
     const {getOrdenes} = useContext(CartContext)
+    const {comprador} = useContext(CartContext)
 
     
 
     // console.log( productos)
     console.log ("cardProd: ")
     console.log (ordenes)
+    console.log ("comprador: ")
+    console.log (comprador)
+
+    
+
+
 
     // const probando = () => {
     //     console.log(ordenes);
@@ -35,27 +38,11 @@ const CardProducts = () => {
     //     console.log(comprador.nombre);
     // }
 
-    const sendEmail = (ordenes) => {
-
-        console.log("dentro de sedEmail");
-        console.log(ordenes);
-        console.log(idCompra);
-        console.log(comprador);
-               
-        // emailjs.send('service_j2ki7bf', 'template_cywbieo', {message: `hola ismael, se genero un acompra con codigo: ${idCompra}`}, 'yyv2iSvB0hSjYp091')
-        //     .then((result) => {
-        //         console.log(result.text);
-        //     }, (error) => {
-        //         console.log(error.text);
-        //     });
-    }      
+    
 
 
     useEffect(() => {
-        getOrdenes();
-        setTimeout(() => {
-            sendEmail(ordenes);
-        }, 7000);        
+        getOrdenes();      
     },[])
 
 
